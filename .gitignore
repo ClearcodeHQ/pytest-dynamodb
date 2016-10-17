@@ -1,0 +1,59 @@
+.cache/*
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+results
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+htmlcov/*
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# vim files
+*.swp
+
+# redis logs
+*.log
+
+# erl dump:
+*.dump
+
+# pycharm files
+atlassian-ide-plugin.xml
+.idea/
+
+# docs
+docs/_build/
+
+# osx
+.DS_Store
+._.DS_Store
+
