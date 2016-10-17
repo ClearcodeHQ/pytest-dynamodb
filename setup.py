@@ -46,7 +46,8 @@ requirements = [
 ]
 
 test_requires = [
-    'pytest-cov'
+    'pytest-cov==2.4.0',
+    'pytest-xdist==1.15.0',
 ]
 
 extras_require = {
@@ -83,6 +84,10 @@ setup(
     install_requires=requirements,
     tests_require=test_requires,
     test_suite='tests',
+    entry_points={
+        'pytest11': [
+            'pytest_dynamodb = pytest_dynamodb.plugin'
+        ]},
     include_package_data=True,
     zip_safe=False,
     extras_require=extras_require,
