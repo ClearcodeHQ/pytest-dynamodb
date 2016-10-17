@@ -39,6 +39,10 @@ def read(fname):
 
 requirements = [
     'pytest',
+    'boto3',
+    'path.py',
+    'mirakuru',
+    'port-for'
 ]
 
 test_requires = [
