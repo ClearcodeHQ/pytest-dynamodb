@@ -1,5 +1,5 @@
 pytest-dynamodb
-====
+=====
 
 .. image:: https://img.shields.io/pypi/v/pytest-dynamodb.svg
     :target: https://pypi.python.org/pypi/pytest-dynamodb/
