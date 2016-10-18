@@ -1,3 +1,4 @@
+"""Test module for pytest-dynamodb."""
 import uuid
 
 

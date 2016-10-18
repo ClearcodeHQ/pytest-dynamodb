@@ -15,8 +15,9 @@
 
 # You should have received a copy of the GNU Lesser General Public License
 # along with pytest-dynamodb. If not, see <http://www.gnu.org/licenses/>.
-import pytest
+"""Module containing factories for pytest-dynamodb."""
 
+import pytest
 import boto3
 from path import Path
 from mirakuru import TCPExecutor
@@ -25,12 +26,14 @@ from pytest_dynamodb.port import get_port
 
 
 class JarPathException(Exception):
-    """We do not know where user has dynamodb jar file.
+    """
+    Exception thrown, i ncase we can't locate dynamodb's dir to run dynamodb.
+
+    We do not know where user has dynamodb jar file.
     So, we want to tell him that he has to provide a path to dynamodb dir.
+    """
 
-    We raise the exception when we won't find this file."""
     pass
-
 
 
 def get_config(request):
@@ -49,7 +52,7 @@ def get_config(request):
 
 def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
     """
-    DynamoDB process factory.
+    Process fixture factory for DynamoDB.
 
     :param str dynamodb_dir: a path to dynamodb dir (without spaces)
     :param str host: hostname
@@ -66,15 +69,19 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
     @pytest.fixture(scope='session')
     def dynamodb_proc_fixture(request):
         """
-        #. Run a ``DynamoDBLocal.jar`` process.
-        #. Stop ``DynamoDBLocal.jar`` process after tests.
+        Process fixture for DynamoDB.
+
+        It starts DynamoDB when first used and stops it at the end
+        of the tests. Works on ``DynamoDBLocal.jar``.
 
         :param FixtureRequest request: fixture request object
         :rtype: pytest_dbfixtures.executors.TCPExecutor
         :returns: tcp executor
         """
         config = get_config(request)
-        path_dynamodb_jar = Path(dynamodb_dir or config['dir']) / 'DynamoDBLocal.jar'
+        path_dynamodb_jar = Path(
+            dynamodb_dir or config['dir']
+        ) / 'DynamoDBLocal.jar'
 
         if not path_dynamodb_jar.exists():
             raise JarPathException(
@@ -108,17 +115,16 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
 
 def dynamodb(process_fixture_name):
     """
-    DynamoDB resource factory.
+    Fixture factory for DynamoDB resource.
 
     :param str process_fixture_name: name of the process fixture
     :rtype: func
     :returns: function which makes a connection to DynamoDB
     """
-
     @pytest.fixture
     def dynamodb_factory(request):
         """
-        Connect to the local DynamoDB.
+        Fixture for DynamoDB resource.
 
         :param FixtureRequest request: fixture request object
         :rtype: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
