@@ -153,4 +153,5 @@ def dynamodb(process_fixture_name):
         return dynamo_db
     return dynamodb_factory
 
+
 __all__ = ('dynamodb_proc', 'dynamodb')
