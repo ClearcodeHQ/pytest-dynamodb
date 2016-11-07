@@ -106,6 +106,7 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             ),
             host=dynamodb_host,
             port=dynamodb_port,
+            timeout=60
         )
         dynamodb_executor.start()
         request.addfinalizer(dynamodb_executor.stop)
