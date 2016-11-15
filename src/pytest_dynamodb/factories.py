@@ -132,7 +132,7 @@ def dynamodb(process_fixture_name):
             https://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Client
         :returns: connection to DynamoDB database
         """
-        proc_fixture = request.getfuncargvalue(process_fixture_name)
+        proc_fixture = request.getfixturevalue(process_fixture_name)
 
         dynamo_db = boto3.resource(
             'dynamodb',
