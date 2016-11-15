@@ -36,7 +36,7 @@ def read(fname):
 
 
 requirements = [
-    'pytest',
+    'pytest>=3.0.0',
     'boto3',
     'path.py',
     'mirakuru',
