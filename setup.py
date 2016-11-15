@@ -55,7 +55,7 @@ extras_require = {
 
 setup(
     name='pytest-dynamodb',
-    version='1.0.1',
+    version='1.1.0',
     description='DynamoDB fixtures for pytest',
     long_description=(
         read('README.rst') + '\n\n' + read('CHANGES.rst')
