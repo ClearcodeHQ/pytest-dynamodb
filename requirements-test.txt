@@ -1,12 +1,12 @@
 # test runs requirements (versions we'll be testing against) - automatically updated by requires.io
-coverage==4.3.1 # pytest-cov
+coverage==4.3.2 # pytest-cov
 pylama==7.3.3
 pyflakes==1.5.0
 pydocstyle==1.1.1
 pycodestyle==2.2.0
 mccabe==0.5.3
 pyroma==2.2
-boto3==1.4.3
+boto3==1.4.4
 path.py==10.0
 mirakuru==0.8.2
 port-for==0.3.1
