@@ -16,10 +16,10 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with pytest-dynamodb. If not, see <http://www.gnu.org/licenses/>.
 """Module containing factories for pytest-dynamodb."""
+import os
 
 import pytest
 import boto3
-from path import Path
 from mirakuru import TCPExecutor
 
 from pytest_dynamodb.port import get_port
@@ -79,11 +79,12 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
         :returns: tcp executor
         """
         config = get_config(request)
-        path_dynamodb_jar = Path(
-            dynamodb_dir or config['dir']
-        ) / 'DynamoDBLocal.jar'
+        path_dynamodb_jar = os.path.join(
+            (dynamodb_dir or config['dir']),
+            'DynamoDBLocal.jar'
+        )
 
-        if not path_dynamodb_jar.exists():
+        if not os.path.isfile(path_dynamodb_jar):
             raise JarPathException(
                 'You have to provide a path to the dir with dynamodb jar file.'
             )
