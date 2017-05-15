@@ -10,6 +10,10 @@ python:
 env:
 - INSTALLATION="python setup.py develop" XDIST=1
 - INSTALLATION="pip install ." XDIST=0
+# blocklist branches
+branches:
+  except:
+  - requires-io-master
 before_install:
 - mkdir /tmp/dynamodb
 - wget -O - https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz
