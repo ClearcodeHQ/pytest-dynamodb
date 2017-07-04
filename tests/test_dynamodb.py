@@ -2,7 +2,7 @@
 import uuid
 
 
-def test_dynamodb(dynamodb):
+def test_dynamodb(aws_config, dynamodb):
     """
     Simple test for DynamoDB.
 
@@ -53,7 +53,7 @@ def test_dynamodb(dynamodb):
     assert item['Item']['test_key'] == 'test_value'
 
 
-def test_if_tables_does_not_exist(dynamodb):
+def test_if_tables_does_not_exist(aws_config, dynamodb):
     """
     We should clear this fixture (remove all tables).
 
