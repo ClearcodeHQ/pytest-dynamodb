@@ -141,10 +141,6 @@ def dynamodb(process_fixture_name):
                 host=proc_fixture.host,
                 port=proc_fixture.port
             ),
-            # these args do not matter (we have to put something to them)
-            region_name='us-east-1',
-            aws_access_key_id='',
-            aws_secret_access_key='',
         )
 
         # remove all tables
