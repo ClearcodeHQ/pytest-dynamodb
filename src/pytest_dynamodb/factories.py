@@ -116,7 +116,9 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
     return dynamodb_proc_fixture
 
 
-def dynamodb(process_fixture_name, access_key=None, secret_key=None, region=None):
+def dynamodb(
+    process_fixture_name, access_key=None, secret_key=None, region=None
+):
     """
     Fixture factory for DynamoDB resource.
 
