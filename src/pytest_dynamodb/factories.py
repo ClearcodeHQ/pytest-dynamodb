@@ -116,11 +116,14 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
     return dynamodb_proc_fixture
 
 
-def dynamodb(process_fixture_name):
+def dynamodb(process_fixture_name, access_key=None, secret_key=None, region=None):
     """
     Fixture factory for DynamoDB resource.
 
     :param str process_fixture_name: name of the process fixture
+    :param str access_key: AWS acccess key
+    :param str secret_key: AWS secret key
+    :param str region: AWS region name
     :rtype: func
     :returns: function which makes a connection to DynamoDB
     """
@@ -143,9 +146,9 @@ def dynamodb(process_fixture_name):
                 host=proc_fixture.host,
                 port=proc_fixture.port,
                 ),
-            aws_access_key_id=config['aws_access_key'],
-            aws_secret_access_key=config['aws_secret_key'],
-            region_name=config['aws_region'],
+            aws_access_key_id=access_key or config['aws_access_key'],
+            aws_secret_access_key=secret_key or config['aws_secret_key'],
+            region_name=region or config['aws_region'],
         )
 
         # remove all tables
