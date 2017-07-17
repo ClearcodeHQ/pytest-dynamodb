@@ -40,7 +40,8 @@ def get_config(request):
     """Return a dictionary with config options."""
     config = {}
     options = [
-        'dir', 'host', 'port', 'delay'
+        'dir', 'host', 'port', 'delay', 'aws_access_key',
+        'aws_secret_key', 'aws_region',
     ]
     for option in options:
         option_name = 'dynamodb_' + option
@@ -107,7 +108,7 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             ),
             host=dynamodb_host,
             port=dynamodb_port,
-            timeout=60
+            timeout=60,
         )
         dynamodb_executor.start()
         request.addfinalizer(dynamodb_executor.stop)
@@ -134,17 +135,17 @@ def dynamodb(process_fixture_name):
         :returns: connection to DynamoDB database
         """
         proc_fixture = request.getfixturevalue(process_fixture_name)
+        config = get_config(request)
 
         dynamo_db = boto3.resource(
             'dynamodb',
             endpoint_url='http://{host}:{port}'.format(
                 host=proc_fixture.host,
-                port=proc_fixture.port
-            ),
-            # these args do not matter (we have to put something to them)
-            region_name='us-east-1',
-            aws_access_key_id='',
-            aws_secret_access_key='',
+                port=proc_fixture.port,
+                ),
+            aws_access_key_id=config['aws_access_key'],
+            aws_secret_access_key=config['aws_secret_key'],
+            region_name=config['aws_region'],
         )
 
         # remove all tables
