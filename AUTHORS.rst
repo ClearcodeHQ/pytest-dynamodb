@@ -7,3 +7,4 @@ of pytest-dynamodb along its history.
 * Tomasz Święcicki
 * Karolina Blumke
 * Grzegorz Śliwiński
+* Łukasz Kostka
