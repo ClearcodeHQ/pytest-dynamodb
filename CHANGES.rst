@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-unreleased
+1.2.0
 -------
 
 - [enhancement] ability to configure aws region and credentials,
