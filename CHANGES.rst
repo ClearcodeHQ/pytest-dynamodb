@@ -1,10 +1,20 @@
 CHANGELOG
 =========
 
+unreleased
+-------
+
+- [enhancement] ability to configure aws region and credentials,
+
+    .. note::
+
+        apparently local dynamo operates on these so whatever you'll set when creating table,
+        is whatever is required when accessing the table
+
 1.1.1
 -------
 
-- [enhancemet] removed path.py dependency
+- [enhancement] removed path.py dependency
 
 1.1.0
 -------

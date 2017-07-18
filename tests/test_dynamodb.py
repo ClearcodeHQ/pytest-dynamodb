@@ -1,6 +1,11 @@
 """Test module for pytest-dynamodb."""
 import uuid
 
+import pytest
+from botocore.exceptions import ClientError
+
+from pytest_dynamodb import factories
+
 
 def test_dynamodb(dynamodb):
     """
@@ -63,3 +68,47 @@ def test_if_tables_does_not_exist(dynamodb):
     """
     table_names = [t for t in dynamodb.tables.all()]
     assert len(table_names) == 0
+
+
+dynamodb_same = factories.dynamodb('dynamodb_proc')
+dynamodb_diff = factories.dynamodb(
+    'dynamodb_proc', access_key='denied_key', secret_key='public_key'
+)
+
+
+def test_different_credentials(
+        dynamodb_proc, dynamodb_diff, dynamodb_same, dynamodb, request
+):
+    """
+    Check error when accessing table with different credentials.
+
+    scan on dynamodb_diff should result in an error,
+    while scans on dynamodb and dynamodb_same should pass.
+    """
+    dynamodb.create_table(
+        AttributeDefinitions=[
+            {
+                'AttributeName': 'string',
+                'AttributeType': 'S'
+            },
+        ],
+        TableName='string',
+        KeySchema=[
+            {
+                'AttributeName': 'string',
+                'KeyType': 'HASH'
+            },
+        ],
+        ProvisionedThroughput={
+            'ReadCapacityUnits': 123,
+            'WriteCapacityUnits': 123
+        },
+    )
+
+    dynamodb.Table('string').scan()
+
+    with pytest.raises(ClientError):
+        dynamodb_diff.Table('string').scan()
+
+    dynamodb.Table('string').scan()
+    dynamodb_same.Table('string').scan()
