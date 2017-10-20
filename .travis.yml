@@ -19,6 +19,8 @@ before_install:
 - wget -O - https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz
   | tar xz --directory /tmp/dynamodb
 install:
+- pip install 'setuptools>=21.0.0'
+- pip install 'pip>=9'
 - pip install -r requirements-test.txt
 - "$INSTALLATION"
 - pip install pytest-dynamodb[tests] coveralls wheel
