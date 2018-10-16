@@ -17,10 +17,4 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with pytest-dynamodb. If not, see <http://www.gnu.org/licenses/>.
 """Main module for pytest-dynamodb."""
-
-import logging
-
 __version__ = '1.2.0'
-
-
-logger = logging.getLogger(__name__)

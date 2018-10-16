@@ -2,7 +2,15 @@
 import sys
 import warnings
 
-major, minor = sys.version_info[:2]
+from pytest_dynamodb import factories
 
-if not (major >= 3 and minor >= 5):
+if not sys.version_info >= (3, 5):
     warnings.simplefilter("error", category=DeprecationWarning)
+
+
+# pylint:disable=invalid-name
+dynamodb_same = factories.dynamodb('dynamodb_proc')
+dynamodb_diff = factories.dynamodb(
+    'dynamodb_proc', access_key='denied_key', secret_key='public_key'
+)
+# pylint:enable=invalid-name
