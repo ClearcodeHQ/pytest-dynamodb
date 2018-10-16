@@ -4,8 +4,6 @@ import uuid
 import pytest
 from botocore.exceptions import ClientError
 
-from pytest_dynamodb import factories
-
 
 def test_dynamodb(dynamodb):
     """
@@ -67,17 +65,11 @@ def test_if_tables_does_not_exist(dynamodb):
         Table resources in the collection.
     """
     table_names = [t for t in dynamodb.tables.all()]
-    assert len(table_names) == 0
-
-
-dynamodb_same = factories.dynamodb('dynamodb_proc')
-dynamodb_diff = factories.dynamodb(
-    'dynamodb_proc', access_key='denied_key', secret_key='public_key'
-)
+    assert not table_names
 
 
 def test_different_credentials(
-        dynamodb_proc, dynamodb_diff, dynamodb_same, dynamodb, request
+        dynamodb_diff, dynamodb_same, dynamodb
 ):
     """
     Check error when accessing table with different credentials.
