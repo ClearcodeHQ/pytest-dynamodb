@@ -33,8 +33,6 @@ class JarPathException(Exception):
     So, we want to tell him that he has to provide a path to dynamodb dir.
     """
 
-    pass
-
 
 def get_config(request):
     """Return a dictionary with config options."""
