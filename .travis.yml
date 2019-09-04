@@ -4,11 +4,13 @@ python:
 - 3.5
 - 3.6
 - 3.7
+- 3.8-dev
 - pypy3.5
 # blocklist branches
 branches:
   except:
   - requires-io-master
+  - /^dependabot.*$/
 before_install:
 - mkdir /tmp/dynamodb
 - wget -O - https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz
