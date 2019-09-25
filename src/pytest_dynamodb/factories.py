@@ -151,12 +151,10 @@ def dynamodb(
             region_name=region or config['aws_region'],
         )
 
-        # remove all tables
-        request.addfinalizer(
-            lambda: [t.delete() for t in dynamo_db.tables.all()]
-        )
+        yield dynamo_db
+        for table in dynamo_db.tables.all():  # pylint:disable=no-member
+            table.delete()
 
-        return dynamo_db
     return dynamodb_factory
 
 

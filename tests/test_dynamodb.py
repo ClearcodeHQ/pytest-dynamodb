@@ -64,8 +64,7 @@ def test_if_tables_does_not_exist(dynamodb):
         `all` method on tables object creates an iterable of all
         Table resources in the collection.
     """
-    table_names = [t for t in dynamodb.tables.all()]
-    assert not table_names
+    assert not list(dynamodb.tables.all())
 
 
 def test_different_credentials(
