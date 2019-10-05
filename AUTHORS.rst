@@ -8,3 +8,4 @@ of pytest-dynamodb along its history.
 * Karolina Blumke
 * Grzegorz Śliwiński
 * Łukasz Kostka
+* Damian Skrzypczak
