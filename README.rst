@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/ClearcodeHQ/pytest-dynamodb/master/logo.svg
+.. image:: https://raw.githubusercontent.com/ClearcodeHQ/pytest-dynamodb/master/logo.png
     :width: 100px
     :height: 100px
     
