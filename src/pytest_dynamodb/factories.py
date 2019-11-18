@@ -89,21 +89,15 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             )
 
         dynamodb_port = get_port(port or config['port'])
-        dynamodb_delay = delay or config['delay']
+        dynamodb_delay = '-delayTransientStatuses' if delay or config['delay'] else ''
         dynamodb_host = host or config['host']
-
         dynamodb_executor = TCPExecutor(
-            '''java
+            f'''java
             -Djava.library.path=./DynamoDBLocal_lib
             -jar {path_dynamodb_jar}
             -inMemory
-            {delay}
-            -port {port}'''
-            .format(
-                path_dynamodb_jar=path_dynamodb_jar,
-                port=dynamodb_port,
-                delay='-delayTransientStatuses' if dynamodb_delay else '',
-            ),
+            {dynamodb_delay}
+            -port {dynamodb_port}''',
             host=dynamodb_host,
             port=dynamodb_port,
             timeout=60,
@@ -142,10 +136,7 @@ def dynamodb(
 
         dynamo_db = boto3.resource(
             'dynamodb',
-            endpoint_url='http://{host}:{port}'.format(
-                host=proc_fixture.host,
-                port=proc_fixture.port,
-                ),
+            endpoint_url=f'http://{proc_fixture.host}:{proc_fixture.port}',
             aws_access_key_id=access_key or config['aws_access_key'],
             aws_secret_access_key=secret_key or config['aws_secret_key'],
             region_name=region or config['aws_region'],
