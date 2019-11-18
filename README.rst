@@ -79,23 +79,49 @@ You can pick which you prefer, but remember that these settings are handled in t
     * ``Command line option``
     * ``Configuration option in your pytest.ini file``
 
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| DynamoDB option                                                                                            | Fixture factory argument | Command line option       | pytest.ini option       | Default       |
-+============================================================================================================+==========================+===========================+=========================+===============+
-| Path to dynamodb jar file                                                                                  | dynamodb_dir             | --dynamodb-dir            | dynamodb_dir            | /tmp/dynamodb |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| host                                                                                                       | host                     | --dynamodb-host           | dynamodb_host           | 127.0.0.1     |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| port                                                                                                       | port                     | --dynamodb-port           | dynamodb_port           | random        |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| AWS Access Key                                                                                             | access_key               | --dynamodb-aws_access_key | dynamodb_aws_access_key | access_key    |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| AWS Secret Key                                                                                             | secret_key               | --dynamodb-aws_secret_key | dynamodb_aws_secret_key | secret_key    |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| AWS Region                                                                                                 | region                   | --dynamodb-aws_region     | dynamodb_aws_region     | us-west-1     |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
-| `Introduce delays <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)>`_  | delay                    | --dynamodb-delay          | dynamodb_delay          | false         |
-+------------------------------------------------------------------------------------------------------------+--------------------------+---------------------------+-------------------------+---------------+
+.. list-table:: Configuration options
+   :header-rows: 1
+
+   * - DynamoDB option
+     - Fixture factory argument
+     - Command line option
+     - pytest.ini option
+     - Default
+   * - Path to dynamodb jar file
+     - dynamodb_dir
+     - --dynamodb-dir
+     - dynamodb_dir
+     - /tmp/dynamodb
+   * - host
+     - host
+     - --dynamodb-host
+     - dynamodb_host
+     - 127.0.0.1
+   * - port
+     - port
+     - --dynamodb-port
+     - dynamodb_port
+     - random
+   * - AWS Access Key
+     - access_key
+     - --dynamodb-aws_access_key
+     - dynamodb_aws_access_key
+     - access_key
+   * - AWS Secret Key
+     - secret_key
+     - --dynamodb-aws_secret_key
+     - dynamodb_aws_secret_key
+     - secret_key
+   * - AWS Region
+     - region
+     - --dynamodb-aws_region
+     - dynamodb_aws_region
+     - us-west-1
+   * - `Introduce delays <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)>`_
+     - delay
+     - --dynamodb-delay
+     - dynamodb_delay
+     - false
 
 
 Example usage:
