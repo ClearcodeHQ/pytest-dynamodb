@@ -89,7 +89,9 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             )
 
         dynamodb_port = get_port(port or config['port'])
-        dynamodb_delay = '-delayTransientStatuses' if delay or config['delay'] else ''
+        dynamodb_delay = (
+            '-delayTransientStatuses' if delay or config['delay'] else ''
+        )
         dynamodb_host = host or config['host']
         dynamodb_executor = TCPExecutor(
             f'''java
