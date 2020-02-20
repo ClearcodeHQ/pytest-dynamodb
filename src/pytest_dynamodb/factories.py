@@ -20,7 +20,7 @@ import os
 
 import pytest
 import boto3
-from mirakuru import TCPExecutor
+from mirakuru import TCPExecutor, ProcessExitedWithError
 
 from pytest_dynamodb.port import get_port
 
@@ -105,8 +105,11 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             timeout=60,
         )
         dynamodb_executor.start()
-        request.addfinalizer(dynamodb_executor.stop)
-        return dynamodb_executor
+        yield dynamodb_executor
+        try:
+            dynamodb_executor.stop()
+        except ProcessExitedWithError:
+            pass
     return dynamodb_proc_fixture
 
 
