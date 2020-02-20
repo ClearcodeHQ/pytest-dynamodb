@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-unreleased
+2.0.1
 -------
 
 - [fix] Adjust for mirakuru 2.2.0 and up
