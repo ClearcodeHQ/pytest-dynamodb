@@ -4,6 +4,7 @@ python:
 - 3.8
 - 3.7
 - 3.6
+- 3.9-dev
 - nightly
 - pypy3
 # blocklist branches
@@ -25,6 +26,9 @@ script:
 after_success:
 - coveralls
 jobs:
+  allow_failures:
+    - python: 3.9-dev
+    - python: nightly
   include:
     - stage: xdist
       script: py.test -n 1
