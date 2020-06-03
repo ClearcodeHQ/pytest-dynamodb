@@ -5,5 +5,5 @@ coverage==5.1 # pytest-cov
 boto3==1.13.20
 mirakuru==2.3.0
 port-for==0.4
-pytest==5.4.2
+pytest==5.4.3
 -e .[tests]
