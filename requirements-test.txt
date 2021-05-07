@@ -2,7 +2,7 @@
 pytest-cov==2.11.1
 pytest-xdist==2.2.1
 coverage==5.5 # pytest-cov
-boto3==1.17.67
+boto3==1.17.68
 mirakuru==2.3.0
 port-for==0.5.0
 pytest==6.2.4
