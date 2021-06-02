@@ -20,9 +20,9 @@ from pytest_dynamodb import factories
 
 
 # pylint:disable=invalid-name
-_help_dir = 'Path to DynamoDB installation path'
-_help_host = 'Host at which DynamoDB will accept connections'
-_help_port = 'Port at which DynamoDB will accept connections'
+_help_dir = "Path to DynamoDB installation path"
+_help_host = "Host at which DynamoDB will accept connections"
+_help_port = "Port at which DynamoDB will accept connections"
 _help_delay = "causes DynamoDB to introduce delays for certain operations"
 _help_aws_secret_key = "AWS secret key."
 _help_aws_access_key = "AWS access key."
@@ -31,98 +31,83 @@ _help_aws_region = "AWS region name."
 
 def pytest_addoption(parser):
     """Configure options for pytest-dynamodb."""
-    parser.addini(
-        name='dynamodb_dir',
-        help=_help_dir,
-        default='/tmp/dynamodb'
-    )
+    parser.addini(name="dynamodb_dir", help=_help_dir, default="/tmp/dynamodb")
+
+    parser.addini(name="dynamodb_host", help=_help_host, default="127.0.0.1")
 
     parser.addini(
-        name='dynamodb_host',
-        help=_help_host,
-        default='127.0.0.1'
-    )
-
-    parser.addini(
-        name='dynamodb_port',
+        name="dynamodb_port",
         help=_help_port,
         default=None,
     )
 
-    parser.addini(
-        name='dynamodb_delay',
-        help=_help_delay,
-        default=False
-    )
+    parser.addini(name="dynamodb_delay", help=_help_delay, default=False)
 
     parser.addini(
-        name='dynamodb_aws_secret_key',
+        name="dynamodb_aws_secret_key",
         help=_help_aws_secret_key,
-        default='secret_key',
+        default="secret_key",
     )
 
     parser.addoption(
-        '--dynamodb-aws_secret_key',
-        action='store',
-        dest='dynamodb_aws_secret_key',
+        "--dynamodb-aws_secret_key",
+        action="store",
+        dest="dynamodb_aws_secret_key",
         help=_help_aws_secret_key,
     )
 
     parser.addini(
-        name='dynamodb_aws_access_key',
+        name="dynamodb_aws_access_key",
         help=_help_aws_access_key,
-        default='access_key',
+        default="access_key",
     )
 
     parser.addoption(
-        '--dynamodb-aws_access_key',
-        action='store',
-        dest='dynamodb_aws_access_key',
+        "--dynamodb-aws_access_key",
+        action="store",
+        dest="dynamodb_aws_access_key",
         help=_help_aws_access_key,
     )
 
     parser.addini(
-        name='dynamodb_aws_region',
+        name="dynamodb_aws_region",
         help=_help_aws_region,
-        default='us-west-1',
+        default="us-west-1",
     )
 
     parser.addoption(
-        '--dynamodb-aws_region',
-        action='store',
-        dest='dynamodb_aws_region',
+        "--dynamodb-aws_region",
+        action="store",
+        dest="dynamodb_aws_region",
         help=_help_aws_region,
     )
 
     parser.addoption(
-        '--dynamodb-dir',
-        action='store',
-        metavar='path',
-        dest='dynamodb_dir',
-        help=_help_dir
+        "--dynamodb-dir",
+        action="store",
+        metavar="path",
+        dest="dynamodb_dir",
+        help=_help_dir,
     )
 
     parser.addoption(
-        '--dynamodb-host',
-        action='store',
-        dest='dynamodb_host',
+        "--dynamodb-host",
+        action="store",
+        dest="dynamodb_host",
         help=_help_host,
     )
 
     parser.addoption(
-        '--dynamodb-port',
-        action='store',
-        dest='dynamodb_port',
-        help=_help_port
+        "--dynamodb-port", action="store", dest="dynamodb_port", help=_help_port
     )
 
     parser.addoption(
-        '--dynamodb-delay',
-        action='store',
-        dest='dynamodb_delay',
-        help=_help_delay
+        "--dynamodb-delay",
+        action="store",
+        dest="dynamodb_delay",
+        help=_help_delay,
     )
 
 
 dynamodb_proc = factories.dynamodb_proc()
-dynamodb = factories.dynamodb('dynamodb_proc')
+dynamodb = factories.dynamodb("dynamodb_proc")
