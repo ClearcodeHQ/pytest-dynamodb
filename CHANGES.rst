@@ -8,6 +8,7 @@ Misc
 ++++
 
 - Migrate CI to github actions
+- Support only python 3.7 and up
 
 2.0.1
 -------
