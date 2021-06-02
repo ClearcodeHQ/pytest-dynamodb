@@ -15,45 +15,31 @@ def test_dynamodb(dynamodb):
     """
     # create a table
     table = dynamodb.create_table(
-        TableName='Test',
-        KeySchema=[
-            {
-                'AttributeName': 'id',
-                'KeyType': 'HASH'
-            }
-        ],
-        AttributeDefinitions=[
-            {
-                'AttributeName': 'id',
-                'AttributeType': 'S'
-            }
-
-        ],
+        TableName="Test",
+        KeySchema=[{"AttributeName": "id", "KeyType": "HASH"}],
+        AttributeDefinitions=[{"AttributeName": "id", "AttributeType": "S"}],
         ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
-        }
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10,
+        },
     )
 
     _id = str(uuid.uuid4())
 
     # put an item into db
     table.put_item(
-        Item={
-            'id': _id,
-            'test_key': 'test_value'
-        },
+        Item={"id": _id, "test_key": "test_value"},
     )
 
     # get the item
     item = table.get_item(
         Key={
-            'id': _id,
+            "id": _id,
         }
     )
 
     # check the content of the item
-    assert item['Item']['test_key'] == 'test_value'
+    assert item["Item"]["test_key"] == "test_value"
 
 
 def test_if_tables_does_not_exist(dynamodb):
@@ -67,9 +53,7 @@ def test_if_tables_does_not_exist(dynamodb):
     assert not list(dynamodb.tables.all())
 
 
-def test_different_credentials(
-        dynamodb_diff, dynamodb_same, dynamodb
-):
+def test_different_credentials(dynamodb_diff, dynamodb_same, dynamodb):
     """
     Check error when accessing table with different credentials.
 
@@ -78,28 +62,22 @@ def test_different_credentials(
     """
     dynamodb.create_table(
         AttributeDefinitions=[
-            {
-                'AttributeName': 'string',
-                'AttributeType': 'S'
-            },
+            {"AttributeName": "string", "AttributeType": "S"},
         ],
-        TableName='string',
+        TableName="string",
         KeySchema=[
-            {
-                'AttributeName': 'string',
-                'KeyType': 'HASH'
-            },
+            {"AttributeName": "string", "KeyType": "HASH"},
         ],
         ProvisionedThroughput={
-            'ReadCapacityUnits': 123,
-            'WriteCapacityUnits': 123
+            "ReadCapacityUnits": 123,
+            "WriteCapacityUnits": 123,
         },
     )
 
-    dynamodb.Table('string').scan()
+    dynamodb.Table("string").scan()
 
     with pytest.raises(ClientError):
-        dynamodb_diff.Table('string').scan()
+        dynamodb_diff.Table("string").scan()
 
-    dynamodb.Table('string').scan()
-    dynamodb_same.Table('string').scan()
+    dynamodb.Table("string").scan()
+    dynamodb_same.Table("string").scan()

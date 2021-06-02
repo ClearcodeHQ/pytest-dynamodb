@@ -38,18 +38,24 @@ def get_config(request):
     """Return a dictionary with config options."""
     config = {}
     options = [
-        'dir', 'host', 'port', 'delay', 'aws_access_key',
-        'aws_secret_key', 'aws_region',
+        "dir",
+        "host",
+        "port",
+        "delay",
+        "aws_access_key",
+        "aws_secret_key",
+        "aws_region",
     ]
     for option in options:
-        option_name = 'dynamodb_' + option
-        conf = request.config.getoption(option_name) or \
-            request.config.getini(option_name)
+        option_name = "dynamodb_" + option
+        conf = request.config.getoption(option_name) or request.config.getini(
+            option_name
+        )
         config[option] = conf
     return config
 
 
-def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
+def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
     """
     Process fixture factory for DynamoDB.
 
@@ -65,7 +71,8 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
 
     :return: function which makes a DynamoDB process
     """
-    @pytest.fixture(scope='session')
+
+    @pytest.fixture(scope="session")
     def dynamodb_proc_fixture(request):
         """
         Process fixture for DynamoDB.
@@ -79,27 +86,26 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
         """
         config = get_config(request)
         path_dynamodb_jar = os.path.join(
-            (dynamodb_dir or config['dir']),
-            'DynamoDBLocal.jar'
+            (dynamodb_dir or config["dir"]), "DynamoDBLocal.jar"
         )
 
         if not os.path.isfile(path_dynamodb_jar):
             raise JarPathException(
-                'You have to provide a path to the dir with dynamodb jar file.'
+                "You have to provide a path to the dir with dynamodb jar file."
             )
 
-        dynamodb_port = get_port(port or config['port'])
+        dynamodb_port = get_port(port or config["port"])
         dynamodb_delay = (
-            '-delayTransientStatuses' if delay or config['delay'] else ''
+            "-delayTransientStatuses" if delay or config["delay"] else ""
         )
-        dynamodb_host = host or config['host']
+        dynamodb_host = host or config["host"]
         dynamodb_executor = TCPExecutor(
-            f'''java
+            f"""java
             -Djava.library.path=./DynamoDBLocal_lib
             -jar {path_dynamodb_jar}
             -inMemory
             {dynamodb_delay}
-            -port {dynamodb_port}''',
+            -port {dynamodb_port}""",
             host=dynamodb_host,
             port=dynamodb_port,
             timeout=60,
@@ -110,11 +116,12 @@ def dynamodb_proc(dynamodb_dir=None, host='localhost', port=None, delay=False):
             dynamodb_executor.stop()
         except ProcessExitedWithError:
             pass
+
     return dynamodb_proc_fixture
 
 
 def dynamodb(
-        process_fixture_name, access_key=None, secret_key=None, region=None
+    process_fixture_name, access_key=None, secret_key=None, region=None
 ):
     """
     Fixture factory for DynamoDB resource.
@@ -126,6 +133,7 @@ def dynamodb(
     :rtype: func
     :returns: function which makes a connection to DynamoDB
     """
+
     @pytest.fixture
     def dynamodb_factory(request):
         """
@@ -140,11 +148,11 @@ def dynamodb(
         config = get_config(request)
 
         dynamo_db = boto3.resource(
-            'dynamodb',
-            endpoint_url=f'http://{proc_fixture.host}:{proc_fixture.port}',
-            aws_access_key_id=access_key or config['aws_access_key'],
-            aws_secret_access_key=secret_key or config['aws_secret_key'],
-            region_name=region or config['aws_region'],
+            "dynamodb",
+            endpoint_url=f"http://{proc_fixture.host}:{proc_fixture.port}",
+            aws_access_key_id=access_key or config["aws_access_key"],
+            aws_secret_access_key=secret_key or config["aws_secret_key"],
+            region_name=region or config["aws_region"],
         )
 
         yield dynamo_db
@@ -154,4 +162,4 @@ def dynamodb(
     return dynamodb_factory
 
 
-__all__ = ('dynamodb_proc', 'dynamodb')
+__all__ = ("dynamodb_proc", "dynamodb")
