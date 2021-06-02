@@ -21,8 +21,7 @@ import os
 import pytest
 import boto3
 from mirakuru import TCPExecutor, ProcessExitedWithError
-
-from pytest_dynamodb.port import get_port
+from port_for import get_port
 
 
 class JarPathException(Exception):

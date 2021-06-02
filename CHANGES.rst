@@ -7,13 +7,17 @@ unreleased
 Misc
 ++++
 
+- Rely on `get_port` functionality delivered by `port_for`
 - Migrate CI to github actions
 - Support only python 3.7 and up
 
 2.0.1
 -------
 
-- [fix] Adjust for mirakuru 2.2.0 and up
+Bugfix
+++++++
+
+- Adjust for mirakuru 2.2.0 and up
 
 2.0.0
 -------
