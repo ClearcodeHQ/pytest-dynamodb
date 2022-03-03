@@ -117,7 +117,7 @@ You can pick which you prefer, but remember that these settings are handled in t
      - --dynamodb-aws_region
      - dynamodb_aws_region
      - us-west-1
-   * - `Introduce delays <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)>`_
+   * - `Introduce delays <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html#:~:text=%2DdelayTransientStatuses>`_
      - delay
      - --dynamodb-delay
      - dynamodb_delay
