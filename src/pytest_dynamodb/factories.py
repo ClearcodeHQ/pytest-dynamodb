@@ -99,12 +99,10 @@ def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
         )
         dynamodb_host = host or config["host"]
         dynamodb_executor = TCPExecutor(
-            f"""java
-            -Djava.library.path=./DynamoDBLocal_lib
-            -jar {path_dynamodb_jar}
-            -inMemory
-            {dynamodb_delay}
-            -port {dynamodb_port}""",
+            f"java -Djava.library.path=./DynamoDBLocal_lib "
+            f"-jar {path_dynamodb_jar} "
+            f"-inMemory {dynamodb_delay} "
+            f"-port {dynamodb_port}",
             host=dynamodb_host,
             port=dynamodb_port,
             timeout=60,
