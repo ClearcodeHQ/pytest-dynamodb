@@ -1,6 +1,60 @@
+[project]
+name = "pytest-dynamodb"
+version = "2.1.0"
+description = "DynamoDB fixtures for pytest"
+readme = "README.rst"
+keywords = ["tests", "pytest", "fixture", "dynamodb", "aws", "boto"]
+license = {file = "LICENSE"}
+authors = [
+    {name = "Grzegorz Śliwiński", email = "fizyk+pypi@fizyk.dev"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Testing",
+    "Framework :: Pytest",
+]
+dependencies = [
+    "pytest",
+    "port-for>=0.6.0",
+    "mirakuru",
+    "boto3",
+]
+requires-python = ">= 3.7"
+
+[project.urls]
+"Source" = "https://github.com/ClearcodeHQ/pytest-dynamodb"
+"Bug Tracker" = "https://github.com/ClearcodeHQ/pytest-dynamodb/issues"
+"Changelog" = "https://github.com/ClearcodeHQ/pytest-dynamodb/blob/v2.1.0/CHANGES.rst"
+
+[project.entry-points."pytest11"]
+pytest_pyramid = "pytest_dynamodb.plugin"
+
 [build-system]
-requires = ["setuptools >= 40.6.0", "wheel"]
+requires = ["setuptools >= 61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+zip-safe = true
+packages = ["pytest_dynamodb"]
+
+[tool.pytest.ini_options]
+xfail_strict=true
+addopts = "--max-worker-restart=0 --cov"
+testpaths = "tests"
 
 [tool.black]
 line-length = 80
@@ -28,3 +82,6 @@ showcontent = true
 [tool.towncrier.fragment.misc]
 name = "Miscellaneus"
 showcontent = true
+
+[tool.pydocstyle]
+ignore = "D203,D212"

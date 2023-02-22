@@ -1,2 +1,4 @@
 [run]
-source = pytest_dynamodb
+include =
+    pytest_dynamodb/*
+    tests/*
