@@ -1,4 +1,5 @@
 """Tests main conftest file."""
+from pytest_dynamodb.plugin import *
 from pytest_dynamodb import factories
 
 # pylint:disable=invalid-name
