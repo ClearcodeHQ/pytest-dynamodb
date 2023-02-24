@@ -3,9 +3,10 @@ import uuid
 
 import pytest
 from botocore.exceptions import ClientError
+from mypy_boto3_dynamodb import DynamoDBServiceResource
 
 
-def test_dynamodb(dynamodb):
+def test_dynamodb(dynamodb: DynamoDBServiceResource) -> None:
     """
     Simple test for DynamoDB.
 
@@ -42,7 +43,7 @@ def test_dynamodb(dynamodb):
     assert item["Item"]["test_key"] == "test_value"
 
 
-def test_if_tables_does_not_exist(dynamodb):
+def test_if_tables_does_not_exist(dynamodb: DynamoDBServiceResource) -> None:
     """
     We should clear this fixture (remove all tables).
 
@@ -53,7 +54,11 @@ def test_if_tables_does_not_exist(dynamodb):
     assert not list(dynamodb.tables.all())
 
 
-def test_different_credentials(dynamodb_diff, dynamodb_same, dynamodb):
+def test_different_credentials(
+    dynamodb_diff: DynamoDBServiceResource,
+    dynamodb_same: DynamoDBServiceResource,
+    dynamodb: DynamoDBServiceResource,
+) -> None:
     """
     Check error when accessing table with different credentials.
 

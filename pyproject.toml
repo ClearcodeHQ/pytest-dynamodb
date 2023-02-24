@@ -17,7 +17,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -32,8 +31,9 @@ dependencies = [
     "port-for>=0.6.0",
     "mirakuru",
     "boto3",
+    "boto3-stubs[dynamodb]",
 ]
-requires-python = ">= 3.7"
+requires-python = ">= 3.8"
 
 [project.urls]
 "Source" = "https://github.com/ClearcodeHQ/pytest-dynamodb"
@@ -50,6 +50,9 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 zip-safe = true
 packages = ["pytest_dynamodb"]
+
+[tool.setuptools.package-data]
+pytest_dynamodb = ["py.typed"]
 
 [tool.pytest.ini_options]
 xfail_strict=true

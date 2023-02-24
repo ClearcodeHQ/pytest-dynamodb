@@ -17,11 +17,27 @@
 # along with pytest-dynamodb. If not, see <http://www.gnu.org/licenses/>.
 """Module containing factories for pytest-dynamodb."""
 import os
+from pathlib import Path
+from typing import TypedDict, Optional, Any, Callable, Generator
 
 import pytest
 import boto3
+from mypy_boto3_dynamodb import DynamoDBServiceResource
+from pytest import FixtureRequest
 from mirakuru import TCPExecutor, ProcessExitedWithError
 from port_for import get_port
+
+
+class PytestDynamoDBConfigType(TypedDict):
+    """Configuration type dict."""
+
+    dir: Path
+    host: str
+    port: str
+    delay: str
+    aws_access_key: str
+    aws_secret_key: str
+    aws_region: str
 
 
 class JarPathException(Exception):
@@ -33,28 +49,33 @@ class JarPathException(Exception):
     """
 
 
-def get_config(request):
+def get_config(request: FixtureRequest) -> PytestDynamoDBConfigType:
     """Return a dictionary with config options."""
-    config = {}
-    options = [
-        "dir",
-        "host",
-        "port",
-        "delay",
-        "aws_access_key",
-        "aws_secret_key",
-        "aws_region",
-    ]
-    for option in options:
+
+    def get_conf_option(option: str) -> Any:
         option_name = "dynamodb_" + option
-        conf = request.config.getoption(option_name) or request.config.getini(
+        return request.config.getoption(option_name) or request.config.getini(
             option_name
         )
-        config[option] = conf
+
+    config: PytestDynamoDBConfigType = {
+        "dir": get_conf_option("dir"),
+        "host": get_conf_option("host"),
+        "port": get_conf_option("port"),
+        "delay": get_conf_option("delay"),
+        "aws_access_key": get_conf_option("aws_access_key"),
+        "aws_secret_key": get_conf_option("aws_secret_key"),
+        "aws_region": get_conf_option("aws_region"),
+    }
     return config
 
 
-def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
+def dynamodb_proc(
+    dynamodb_dir: Optional[str] = None,
+    host: str = "localhost",
+    port: Optional[int] = None,
+    delay: bool = False,
+) -> Callable[[FixtureRequest], Any]:
     """
     Process fixture factory for DynamoDB.
 
@@ -72,7 +93,9 @@ def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
     """
 
     @pytest.fixture(scope="session")
-    def dynamodb_proc_fixture(request):
+    def dynamodb_proc_fixture(
+        request: FixtureRequest,
+    ) -> Generator[TCPExecutor, None, None]:
         """
         Process fixture for DynamoDB.
 
@@ -94,6 +117,7 @@ def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
             )
 
         dynamodb_port = get_port(port or config["port"])
+        assert dynamodb_port
         dynamodb_delay = (
             "-delayTransientStatuses" if delay or config["delay"] else ""
         )
@@ -118,8 +142,11 @@ def dynamodb_proc(dynamodb_dir=None, host="localhost", port=None, delay=False):
 
 
 def dynamodb(
-    process_fixture_name, access_key=None, secret_key=None, region=None
-):
+    process_fixture_name: str,
+    access_key: Optional[str] = None,
+    secret_key: Optional[str] = None,
+    region: Optional[str] = None,
+) -> Callable[[FixtureRequest], Any]:
     """
     Fixture factory for DynamoDB resource.
 
@@ -132,7 +159,9 @@ def dynamodb(
     """
 
     @pytest.fixture
-    def dynamodb_factory(request):
+    def dynamodb_factory(
+        request: FixtureRequest,
+    ) -> Generator[DynamoDBServiceResource, None, None]:
         """
         Fixture for DynamoDB resource.
 
