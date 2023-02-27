@@ -3,6 +3,35 @@ CHANGELOG
 
 .. towncrier release notes start
 
+2.2.0 (2023-02-27)
+==================
+
+Breaking changes
+----------------
+
+- Dropped support for Python 3.7 due to using TypeDict for configuration. (`#1127 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1127>`_)
+
+
+Features
+--------
+
+- Support python 3.10 (`#939 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/939>`_)
+- Add support for Python 3.11 (`#1116 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1116>`_)
+- Added typing and check code with mypy.
+  Also configuration is being TypeChecked with TypeDict. (`#1127 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1127>`_)
+
+
+Miscellaneus
+------------
+
+- Fix broken link to dynamodb documentation - introduce delays (`#846 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/846>`_)
+- Add towncrier to manage newsfragments and generate changelog (`#1114 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1114>`_)
+- Migrate development dependency management to pipenv (`#1115 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1115>`_)
+- Add your info here (`#1117 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1117>`_)
+- Add automerge action to use Application authentication. (`#1118 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1118>`_)
+- Use tbump to manage package versioning (`#1119 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1119>`_)
+
+
 2.1.0
 =====
 

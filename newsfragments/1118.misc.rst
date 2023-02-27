@@ -1,1 +1,0 @@
-Add automerge action to use Application authentication.

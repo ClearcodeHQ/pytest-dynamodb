@@ -1,2 +1,0 @@
-Added typing and check code with mypy.
-Also configuration is being TypeChecked with TypeDict.
