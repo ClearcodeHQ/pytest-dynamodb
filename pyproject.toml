@@ -91,7 +91,7 @@ ignore = "D203,D212"
 
 [tool.tbump]
 # Uncomment this if your project is hosted on GitHub:
-github_url = "https://github.com/ClearcodeHQ/pytest-dynamodb/"
+# github_url = "https://github.com/ClearcodeHQ/pytest-dynamodb/"
 
 [tool.tbump.version]
 current = "2.2.0"
