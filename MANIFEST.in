@@ -1,4 +1,0 @@
-include *.rst *.py
-recursive-include src/pytest_dynamodb *.py
-recursive-include docs *
-prune docs/build

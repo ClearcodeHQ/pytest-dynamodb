@@ -10,5 +10,6 @@ jobs:
   lint:
     uses: fizyk/actions-reuse/.github/workflows/linters-python.yml@v1.6.4
     with:
+      mypy: true
       pipenv: true
       pipenv-install-options: "--skip-lock"
