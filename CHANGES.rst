@@ -3,6 +3,15 @@ CHANGELOG
 
 .. towncrier release notes start
 
+2.2.1 (2023-03-03)
+==================
+
+Bugfixes
+--------
+
+- Fix entrypoint configuration (`#1138 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1138>`_)
+
+
 2.2.0 (2023-02-27)
 ==================
 
