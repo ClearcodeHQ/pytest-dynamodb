@@ -4,7 +4,7 @@ version = "2.2.1"
 description = "DynamoDB fixtures for pytest"
 readme = "README.rst"
 keywords = ["tests", "pytest", "fixture", "dynamodb", "aws", "boto"]
-license = {file = "LICENSE"}
+license = {file = "COPYING.lesser"}
 authors = [
     {name = "Grzegorz Śliwiński", email = "fizyk+pypi@fizyk.dev"}
 ]
