@@ -3,6 +3,15 @@ CHANGELOG
 
 .. towncrier release notes start
 
+2.2.2 (2023-03-27)
+==================
+
+Bugfixes
+--------
+
+- Fix license configuration in pyproject.toml (`#1150 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1150>`_)
+
+
 2.2.1 (2023-03-03)
 ==================
 

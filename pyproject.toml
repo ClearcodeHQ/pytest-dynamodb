@@ -1,6 +1,6 @@
 [project]
 name = "pytest-dynamodb"
-version = "2.2.1"
+version = "2.2.2"
 description = "DynamoDB fixtures for pytest"
 readme = "README.rst"
 keywords = ["tests", "pytest", "fixture", "dynamodb", "aws", "boto"]
@@ -38,7 +38,7 @@ requires-python = ">= 3.8"
 [project.urls]
 "Source" = "https://github.com/ClearcodeHQ/pytest-dynamodb"
 "Bug Tracker" = "https://github.com/ClearcodeHQ/pytest-dynamodb/issues"
-"Changelog" = "https://github.com/ClearcodeHQ/pytest-dynamodb/blob/v2.2.1/CHANGES.rst"
+"Changelog" = "https://github.com/ClearcodeHQ/pytest-dynamodb/blob/v2.2.2/CHANGES.rst"
 
 [project.entry-points."pytest11"]
 pytest_dynamodb = "pytest_dynamodb.plugin"
@@ -94,7 +94,7 @@ ignore = "D203,D212"
 # github_url = "https://github.com/ClearcodeHQ/pytest-dynamodb/"
 
 [tool.tbump.version]
-current = "2.2.1"
+current = "2.2.2"
 
 # Example of a semver regexp.
 # Make sure this matches current_version before

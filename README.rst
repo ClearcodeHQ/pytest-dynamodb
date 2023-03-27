@@ -24,12 +24,12 @@ pytest-dynamodb
 Package status
 --------------
 
-.. image:: https://travis-ci.org/ClearcodeHQ/pytest-dynamodb.svg?branch=v2.2.1
+.. image:: https://travis-ci.org/ClearcodeHQ/pytest-dynamodb.svg?branch=v2.2.2
     :target: https://travis-ci.org/ClearcodeHQ/pytest-dynamodb
     :alt: Tests
 
-.. image:: https://coveralls.io/repos/ClearcodeHQ/pytest-dynamodb/badge.png?branch=v2.2.1
-    :target: https://coveralls.io/r/ClearcodeHQ/pytest-dynamodb?branch=v2.2.1
+.. image:: https://coveralls.io/repos/ClearcodeHQ/pytest-dynamodb/badge.png?branch=v2.2.2
+    :target: https://coveralls.io/r/ClearcodeHQ/pytest-dynamodb?branch=v2.2.2
     :alt: Coverage Status
 
 What is this?
