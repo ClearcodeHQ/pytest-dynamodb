@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "76721b6288de4ebc2e7da979374d468fc76fbf0def671a0601fffbc64da9799d"
+            "sha256": "0a3ba30cb9554cc63359de07b69471be18f124b215be4cc47585e5dc386f5381"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -35,27 +35,27 @@
                 "dynamodb"
             ],
             "hashes": [
-                "sha256:b0c9951dfb288bd2d2deda679d332d1f3aa3b19831d0c6f8742e75f488bf2ff0",
-                "sha256:cae61a62af8579963cb4590d3dd04a9b713f695c0fc47be7ba45822c9e500fcd"
+                "sha256:098b057f97c49fe85ffb0d11ca3440e946467807bd2ccd70dc5e102ab97b6184",
+                "sha256:90d6f6a41071c1e487b633c4ce80b595644418af55049420c289de27bf832c4c"
             ],
             "index": "pypi",
-            "version": "==1.26.99"
+            "version": "==1.26.104"
         },
         "botocore": {
             "hashes": [
-                "sha256:15c205e4578253da1e8cc247b9d4755042f5f873f68ac6e5fed48f4bd6f008c6",
-                "sha256:d1770b4fe5531870af7a81e9897b2092d2f89e4ba8cb7abbbaf3ab952f6b8a6f"
+                "sha256:7e7a01cef10b1daa9cb01ec25a15e831e7359fc43d1b591359710f203c3620a8",
+                "sha256:932bfbf580a2ae53f471df4bfbebce531985ee27468cf7c37d7ccfb3cf8bc9e4"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.99"
+            "version": "==1.29.104"
         },
         "botocore-stubs": {
             "hashes": [
-                "sha256:3c2a60448bc2b9c5d661db615d7d4435b778d7bb5b0f2687cb8365d9dca2bac4",
-                "sha256:6b6b4348a7ebf4a818a1da7c1b5978a5c4edeee5625a32541775f301bbe84765"
+                "sha256:25c2caa7635ca8e35346fe70c09c69924bbf69324447fc0050355e727684e7ce",
+                "sha256:3aa8c6853eadbd4c98234f89106d8c097794a0967fadc44e7b0f4b8d3595f2bc"
             ],
             "markers": "python_version >= '3.7' and python_version < '4.0'",
-            "version": "==1.29.99"
+            "version": "==1.29.104"
         },
         "iniconfig": {
             "hashes": [
@@ -544,11 +544,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:2ee892cd5f29f3373097f5a814697e397cf3ce313616df0af11231e2ad118077",
-                "sha256:b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2"
+                "sha256:257de92a9d50a60b8e22abfcbb771571fde0dbf3ec234463212027a4eeecbe9a",
+                "sha256:e728ca814a823bf7bf60162daf9db95b93d532948c4c0bea762ce62f60189078"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==67.6.0"
+            "version": "==67.6.1"
         },
         "snowballstemmer": {
             "hashes": [
