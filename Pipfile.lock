@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a188c17e2e4b74a0e88956f7cb7a6696ea82be2215ff0db482945207a2291e29"
+            "sha256": "2dca8a8e518f5ca86f0cee8abe04b6ccb4e77e254c8e96b538232ba75d5e653f"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -27,11 +27,11 @@
                 "dynamodb"
             ],
             "hashes": [
-                "sha256:1388ef91119aa310575a98c9a1900623a305f9f3b1f62d6fb559c2fd9083353f",
-                "sha256:8f16ad3d21d6a707f272c4c1fb41a8360624e79b2620f4c8e991589487c30bd2"
+                "sha256:b6fab54b375fcb34854e2b77c77ee2fe73eae587deea8eecd2628baba7e9bdae",
+                "sha256:dbe41b2027eb7d33f168d65b902ae2e02914e2490d0568f5195aaf158b64b2f1"
             ],
             "index": "pypi",
-            "version": "==1.26.114"
+            "version": "==1.26.118"
         },
         "botocore": {
             "hashes": [
