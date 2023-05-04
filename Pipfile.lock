@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "82814509bf43f2a5ad36c7017c1486e06f07104ad18e97665ee8135b931fc859"
+            "sha256": "0a64ae6628f089d7688c91a686cd9c2d67522342b557d049eb9921e14268cbdd"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -27,27 +27,27 @@
                 "dynamodb"
             ],
             "hashes": [
-                "sha256:b6fab54b375fcb34854e2b77c77ee2fe73eae587deea8eecd2628baba7e9bdae",
-                "sha256:dbe41b2027eb7d33f168d65b902ae2e02914e2490d0568f5195aaf158b64b2f1"
+                "sha256:9bfc4525dd73ddd7125dbe4e62ad36aaa603c686886cc84539f2a9353fb0f6ad",
+                "sha256:f6a04c5b65261766183b6d90421b11682884a361ed98b2842382dcbc703c9954"
             ],
             "index": "pypi",
-            "version": "==1.26.118"
+            "version": "==1.26.126"
         },
         "botocore": {
             "hashes": [
-                "sha256:88f743e1db5bb65e3770af674400642f1d09fca159a1508bdbb8f8cc691589ca",
-                "sha256:b69cdf1c6f451ab1314a363bf97753dfbfe1da93d33853ed241edbdcb806867d"
+                "sha256:a2c5cedb26b364386d02f9ed0a3492da6a322a82e539e54600fbc7190a49660d",
+                "sha256:e7549da5d69b37e8e1f63fcc18fbb9b23f05db8dcb4118019497eee4dad57ff7"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.123"
+            "version": "==1.29.126"
         },
         "botocore-stubs": {
             "hashes": [
-                "sha256:5e7873cfc07c705efb546683f5914fece0e5845dd83e62657b3ae034cc73740b",
-                "sha256:c23e5202cf3580e7d349ac37618ac9d119bf26884413751d20f70aa4664e4c62"
+                "sha256:55f29699ba2f60c4d416b8f4a27a1f8779508c538987e6459a52292ed64f3b6b",
+                "sha256:b956ab54dc04ce057cdc58c69e02d933c7146da2b457816829867667cb76175f"
             ],
             "markers": "python_version >= '3.7' and python_version < '4.0'",
-            "version": "==1.29.123"
+            "version": "==1.29.126"
         },
         "iniconfig": {
             "hashes": [
