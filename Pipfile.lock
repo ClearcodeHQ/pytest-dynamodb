@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "66067fca0c661d26c84c25de4ca26f68984d41c44f937f3af0b6b7a5b0106d1d"
+            "sha256": "3529f3e25fd90f20e340dee740ee9d7a48d24e232c5b3bb853c31ec83e52e1cb"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -552,11 +552,11 @@
         },
         "tbump": {
             "hashes": [
-                "sha256:683eab2e5a4d4861b6928c422d9e51e1d3aeccbbd69d0281fab2c374345e1d9f",
-                "sha256:cf711835b155eaefcf2023ca8963200d893cb40998c9393684df020e6ab1c0b3"
+                "sha256:170a4395d167daee357cb96af5e874119c470feaba9f605e73f3426e768c2542",
+                "sha256:9ebf5d69bc92ca8be1afb13a80f51e374526cb9988f4c3b167036a9e8a10a684"
             ],
             "index": "pypi",
-            "version": "==6.9.0"
+            "version": "==6.10.0"
         },
         "tomlkit": {
             "hashes": [
