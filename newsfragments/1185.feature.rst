@@ -1,0 +1,1 @@
+Do not fail test pipeline if codecov step fails.

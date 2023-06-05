@@ -43,5 +43,5 @@ jobs:
       with:
         flags: linux
         env_vars: OS, PYTHON
-        fail_ci_if_error: true
+        fail_ci_if_error: false
         token: ${{ secrets.CODECOV_TOKEN }}
