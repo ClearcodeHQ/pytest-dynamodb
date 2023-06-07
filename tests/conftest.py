@@ -6,8 +6,7 @@ from pytest_dynamodb import factories
 dynamodb_same = factories.dynamodb("dynamodb_proc")
 dynamodb_diff = factories.dynamodb(
     "dynamodb_proc",
-    access_key="denied_key",
-    secret_key="public_key",
-    region="eu-west-1",
+    access_key="fakeDeniedKeyId",
+    secret_key="fakeDeniedSecretAccessKey",
 )
 # pylint:enable=invalid-name
