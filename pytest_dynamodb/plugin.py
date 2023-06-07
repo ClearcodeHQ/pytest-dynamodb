@@ -20,7 +20,6 @@ from pytest import Parser
 
 from pytest_dynamodb import factories
 
-
 # pylint:disable=invalid-name
 _help_dir = "Path to DynamoDB installation path"
 _help_host = "Host at which DynamoDB will accept connections"

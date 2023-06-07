@@ -18,14 +18,14 @@
 """Module containing factories for pytest-dynamodb."""
 import os
 from pathlib import Path
-from typing import TypedDict, Optional, Any, Callable, Generator
+from typing import Any, Callable, Generator, Optional, TypedDict
 
-import pytest
 import boto3
+import pytest
+from mirakuru import ProcessExitedWithError, TCPExecutor
 from mypy_boto3_dynamodb import DynamoDBServiceResource
-from pytest import FixtureRequest
-from mirakuru import TCPExecutor, ProcessExitedWithError
 from port_for import get_port
+from pytest import FixtureRequest
 
 
 class PytestDynamoDBConfigType(TypedDict):
@@ -41,8 +41,7 @@ class PytestDynamoDBConfigType(TypedDict):
 
 
 class JarPathException(Exception):
-    """
-    Exception thrown, i ncase we can't locate dynamodb's dir to run dynamodb.
+    """Exception thrown, i ncase we can't locate dynamodb's dir to run dynamodb.
 
     We do not know where user has dynamodb jar file.
     So, we want to tell him that he has to provide a path to dynamodb dir.
@@ -76,8 +75,7 @@ def dynamodb_proc(
     port: Optional[int] = None,
     delay: bool = False,
 ) -> Callable[[FixtureRequest], Any]:
-    """
-    Process fixture factory for DynamoDB.
+    """Process fixture factory for DynamoDB.
 
     :param str dynamodb_dir: a path to dynamodb dir (without spaces)
     :param str host: hostname
@@ -96,8 +94,7 @@ def dynamodb_proc(
     def dynamodb_proc_fixture(
         request: FixtureRequest,
     ) -> Generator[TCPExecutor, None, None]:
-        """
-        Process fixture for DynamoDB.
+        """Process fixture for DynamoDB.
 
         It starts DynamoDB when first used and stops it at the end
         of the tests. Works on ``DynamoDBLocal.jar``.
@@ -147,8 +144,7 @@ def dynamodb(
     secret_key: Optional[str] = None,
     region: Optional[str] = None,
 ) -> Callable[[FixtureRequest], Any]:
-    """
-    Fixture factory for DynamoDB resource.
+    """Fixture factory for DynamoDB resource.
 
     :param str process_fixture_name: name of the process fixture
     :param str access_key: AWS acccess key
@@ -162,8 +158,7 @@ def dynamodb(
     def dynamodb_factory(
         request: FixtureRequest,
     ) -> Generator[DynamoDBServiceResource, None, None]:
-        """
-        Fixture for DynamoDB resource.
+        """Fixture for DynamoDB resource.
 
         :param FixtureRequest request: fixture request object
         :rtype: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
