@@ -48,7 +48,7 @@ def pytest_addoption(parser: Parser) -> None:
     parser.addini(
         name="dynamodb_aws_secret_key",
         help=_help_aws_secret_key,
-        default="secret_key",
+        default="fakeSecretAccessKey",
     )
 
     parser.addoption(
@@ -61,7 +61,7 @@ def pytest_addoption(parser: Parser) -> None:
     parser.addini(
         name="dynamodb_aws_access_key",
         help=_help_aws_access_key,
-        default="access_key",
+        default="fakeMyKeyId",
     )
 
     parser.addoption(

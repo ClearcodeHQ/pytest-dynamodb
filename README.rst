@@ -106,12 +106,12 @@ You can pick which you prefer, but remember that these settings are handled in t
      - access_key
      - --dynamodb-aws_access_key
      - dynamodb_aws_access_key
-     - access_key
+     - fakeMyKeyId
    * - AWS Secret Key
      - secret_key
      - --dynamodb-aws_secret_key
      - dynamodb_aws_secret_key
-     - secret_key
+     - fakeSecretAccessKey
    * - AWS Region
      - region
      - --dynamodb-aws_region
