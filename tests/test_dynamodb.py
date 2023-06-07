@@ -7,8 +7,7 @@ from mypy_boto3_dynamodb import DynamoDBServiceResource
 
 
 def test_dynamodb(dynamodb: DynamoDBServiceResource) -> None:
-    """
-    Simple test for DynamoDB.
+    """Simple test for DynamoDB.
 
     # Create a table
     # Put an item
@@ -44,8 +43,7 @@ def test_dynamodb(dynamodb: DynamoDBServiceResource) -> None:
 
 
 def test_if_tables_does_not_exist(dynamodb: DynamoDBServiceResource) -> None:
-    """
-    We should clear this fixture (remove all tables).
+    """We should clear this fixture (remove all tables).
 
     .. note::
         `all` method on tables object creates an iterable of all
@@ -59,8 +57,7 @@ def test_different_credentials(
     dynamodb_same: DynamoDBServiceResource,
     dynamodb: DynamoDBServiceResource,
 ) -> None:
-    """
-    Check error when accessing table with different credentials.
+    """Check error when accessing table with different credentials.
 
     scan on dynamodb_diff should result in an error,
     while scans on dynamodb and dynamodb_same should pass.
