@@ -3,6 +3,23 @@ CHANGELOG
 
 .. towncrier release notes start
 
+2.2.3 (2023-06-12)
+==================
+
+Features
+--------
+
+- Changed default fake credentials for Dynamodb. (`#1154 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1154>`_)
+- Do not fail test pipeline if codecov step fails. (`#1185 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1185>`_)
+
+
+Miscellaneus
+------------
+
+- Adjusted workflows for actions-reuse 2 (`#1174 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1174>`_)
+- Replace pycodestyle and pydocstyle linters with ruff. (`#1178 <https://https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1178>`_)
+
+
 2.2.2 (2023-03-27)
 ==================
 
