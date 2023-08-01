@@ -14,7 +14,7 @@ boto3-stubs = {version = "==1.28.9", extras = ["dynamodb"]}
 towncrier = "==23.6.0"
 pytest-cov = "==4.1.0"
 pytest-xdist = "==3.3.1"
-black = "==23.3.0"
+black = "==23.7.0"
 mypy = "==1.4.1"
 tbump = "==6.10.0"
 ruff = "==0.0.280"
