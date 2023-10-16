@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "94f42170c8c75e79a539e1b057bf724756ecfa8fb9b80822df9216738bb69acf"
+            "sha256": "89e48cd2b6e0aa00ca590114fad0a4f65d63cadeb4e2d99225d2808a94ee926f"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -28,11 +28,11 @@
                 "dynamodb"
             ],
             "hashes": [
-                "sha256:22a08e27d2ede1849dd0d75e8501099240b34bd70adb606584a2af2e12f3a22b",
-                "sha256:f5ae08d2abae7709fff3e7cacea66c41cb43236527cfaf3975e506c6c67439a0"
+                "sha256:bd1becb0f8781d0a3022261a41d33f757a121117bf84ea6476b4761cb9e3cfd5",
+                "sha256:ecf4fb2b5b71be52cfc970ee059fe17439ed1904d0395508f5545c380d4d951d"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.28.62"
+            "version": "==1.28.63"
         },
         "botocore": {
             "hashes": [
