@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "89e48cd2b6e0aa00ca590114fad0a4f65d63cadeb4e2d99225d2808a94ee926f"
+            "sha256": "f30e620a4ded986d67eeb065154c6593984abddee49fc210f4a30c51bbcbd27a"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -16,12 +16,12 @@
     "default": {
         "boto3": {
             "hashes": [
-                "sha256:65d052ec13197460586ee385aa2d6bba0e7378d2d2c7f3e93c044c43ae1ca782",
-                "sha256:94218aba2feb5b404b665b8d76c172dc654f79b4c5fa0e9e92459c098da87bf4"
+                "sha256:0da96244df4771a8ee70b742c42759a440fdb9c8b7850584db7c5daf10e824e1",
+                "sha256:cbc76ed54278be8cdc44ce6ee1980296f764fdff72c6bbe668169c07d4ca08f0"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==1.28.63"
+            "version": "==1.28.68"
         },
         "boto3-stubs": {
             "extras": [
@@ -36,19 +36,19 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:90716c6f1af97e5c2f516e9a3379767ebdddcc6cbed79b026fa5038ce4e5e43e",
-                "sha256:f74e3da98dfcec17bc63ef58f82c643bf5bd7ec6cc11a26ede21cc4cd064917f"
+                "sha256:0813f02d00e46051364d9b5d5e697a90e988b336b87e949888c1444a59b8ba59",
+                "sha256:7b7065c502f5faa6cc2aa4b42b5fa34e5c0cd171e2952d6a9aeb26bfd44a54c3"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.31.65"
+            "version": "==1.31.68"
         },
         "botocore-stubs": {
             "hashes": [
-                "sha256:466d448eb4da3e808999b8cb2eabdc3d8c6f851b017ab06af48a598a2443082d",
-                "sha256:a923f0f1fceec68affcf878be3d2af906763d68dce95a9562c4c3a529834167e"
+                "sha256:1039d8b5bef71a048b08274e16c6aeee5582929c8c7eeb24991c2141d692434a",
+                "sha256:f9997a6855820b1cb97fb9af1026ae1ff5a6af0503ae6cdedd76aa19f0d7adb2"
             ],
             "markers": "python_version >= '3.7' and python_version < '4.0'",
-            "version": "==1.31.65"
+            "version": "==1.31.68"
         },
         "iniconfig": {
             "hashes": [
@@ -77,10 +77,10 @@
         },
         "mypy-boto3-dynamodb": {
             "hashes": [
-                "sha256:a3039f8ada07a218f97f0c70a82ed9cf461a0cb5133194fcf1e0e87b15c899a5",
-                "sha256:c4c16a00e90db5857cbeee207f6dec954ca142bd52e2de0f3d52be6d50d83d16"
+                "sha256:62431d3d9072dd71551623d3d933f5c3aff0f011730281449ff2f56bb742033c",
+                "sha256:e2caf668d9861cc354543e456ca3f7d930bd46d4d2a3cf52f9e93f1073a3dc18"
             ],
-            "version": "==1.28.55"
+            "version": "==1.28.66"
         },
         "packaging": {
             "hashes": [
@@ -191,8 +191,7 @@
                 "sha256:c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84",
                 "sha256:fdb6d215c776278489906c2f8916e6e7d4f5a9b602ccbcfdf7f016fc8da0596e"
             ],
-            "index": "pypi",
-            "markers": "python_version >= '3.7'",
+            "markers": "python_version >= '3.10'",
             "version": "==2.0.7"
         }
     },
