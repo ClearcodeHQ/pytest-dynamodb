@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3f8a521c452b9e4d3cb1b4ccdb51d181bda930ffe9bc07cb6cd290786ecfbe3a"
+            "sha256": "42bfd8659ce5d45e77ff7e56fd640cd2d67fd2e2873dc012853e6b230bd134b7"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -28,12 +28,12 @@
                 "dynamodb"
             ],
             "hashes": [
-                "sha256:184f0dbc901baff1f5b252218d57fbca5b75521c0641ad9a4d7fa34aa20cfb7a",
-                "sha256:7fe6acc350bc103d6a500828180b1696fb897ab45cf36c16ac4ed33a9c36a9e0"
+                "sha256:6651e6ddd0c5cdd77393432e517301096b646aeeea3ade5c305960817dc46aa1",
+                "sha256:67fe5a2fb1d1b2c534fa31c543b773edbc01ce9528010d9cc0ef9c5044aa218a"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==1.34.11"
+            "version": "==1.34.19"
         },
         "botocore": {
             "hashes": [
@@ -45,11 +45,11 @@
         },
         "botocore-stubs": {
             "hashes": [
-                "sha256:c0bb8723c8e6d756e1e321584d118fdd2183b5d1d19f0e910b8658c0110f07a6",
-                "sha256:cae356fe9d23305087d6e909b2759fe7855166ff2fcd59984d04c7ebbb3997db"
+                "sha256:141b6727a7258fc16826f21c7369ca7d38a83848a03ae13fe50c4d1e677a7545",
+                "sha256:dd1bff75bfe0a64e6704a8d74e80f94a1978d58cb2810f7549fa1c83ac8e458c"
             ],
             "markers": "python_version >= '3.8' and python_version < '4.0'",
-            "version": "==1.34.11"
+            "version": "==1.34.19"
         },
         "iniconfig": {
             "hashes": [
