@@ -1,4 +1,5 @@
 """Tests main conftest file."""
+
 from pytest_dynamodb import factories
 from pytest_dynamodb.plugin import *  # noqa: F403
 
