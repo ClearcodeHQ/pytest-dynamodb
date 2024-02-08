@@ -112,3 +112,4 @@ def pytest_addoption(parser: Parser) -> None:
 
 dynamodb_proc = factories.dynamodb_proc()
 dynamodb = factories.dynamodb("dynamodb_proc")
+asyncio_dynamodb = factories.asyncio_dynamodb("dynamodb_proc")

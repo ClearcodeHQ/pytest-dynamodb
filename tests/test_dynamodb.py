@@ -43,6 +43,43 @@ def test_dynamodb(dynamodb: DynamoDBServiceResource) -> None:
     assert item["Item"]["test_key"] == "test_value"
 
 
+@pytest.mark.asyncio
+async def test_asyncio_dynamodb(asyncio_dynamodb: DynamoDBServiceResource) -> None:
+    """Simple test for DynamoDB.
+
+    # Create a table
+    # Put an item
+    # Get the item and check the content of this item
+    """
+    # create a table
+    table = await asyncio_dynamodb.create_table(
+        TableName="Test",
+        KeySchema=[{"AttributeName": "id", "KeyType": "HASH"}],
+        AttributeDefinitions=[{"AttributeName": "id", "AttributeType": "S"}],
+        ProvisionedThroughput={
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10,
+        },
+    )
+
+    _id = str(uuid.uuid4())
+
+    # put an item into db
+    await table.put_item(
+        Item={"id": _id, "test_key": "test_value"},
+    )
+
+    # get the item
+    item = await table.get_item(
+        Key={
+            "id": _id,
+        }
+    )
+
+    # check the content of the item
+    assert item["Item"]["test_key"] == "test_value"
+
+
 def test_if_tables_does_not_exist(dynamodb: DynamoDBServiceResource) -> None:
     """We should clear this fixture (remove all tables).
 

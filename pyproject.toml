@@ -28,8 +28,11 @@ classifiers = [
 ]
 dependencies = [
     "pytest",
+    "pytest-asyncio",
     "port-for>=0.6.0",
     "mirakuru",
+    "aioboto3",
+    "types-aioboto3[dynamodb]",
     "boto3",
     "boto3-stubs[dynamodb]",
 ]

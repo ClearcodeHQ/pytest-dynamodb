@@ -20,12 +20,14 @@ import os
 from pathlib import Path
 from typing import Any, Callable, Generator, Optional, TypedDict
 
+import aioboto3
 import boto3
 import pytest
 from mirakuru import ProcessExitedWithError, TCPExecutor
 from mypy_boto3_dynamodb import DynamoDBServiceResource
 from port_for import get_port
 from pytest import FixtureRequest
+from pytest_asyncio import fixture as asyncio_fixture
 
 
 class PytestDynamoDBConfigType(TypedDict):
@@ -183,4 +185,51 @@ def dynamodb(
     return dynamodb_factory
 
 
-__all__ = ("dynamodb_proc", "dynamodb")
+def asyncio_dynamodb(
+    process_fixture_name: str,
+    access_key: Optional[str] = None,
+    secret_key: Optional[str] = None,
+    region: Optional[str] = None,
+) -> Callable[[FixtureRequest], Any]:
+    """Fixture factory for DynamoDB resource.
+
+    :param str process_fixture_name: name of the process fixture
+    :param str access_key: AWS acccess key
+    :param str secret_key: AWS secret key
+    :param str region: AWS region name
+    :rtype: func
+    :returns: function which makes a connection to DynamoDB
+    """
+
+    @asyncio_fixture
+    async def dynamodb_factory(
+        request: FixtureRequest,
+    ) -> Generator[DynamoDBServiceResource, None, None]:
+        """Fixture for DynamoDB resource.
+
+        :param FixtureRequest request: fixture request object
+        :rtype: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
+            https://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Client
+        :returns: connection to DynamoDB database
+        """
+        proc_fixture = request.getfixturevalue(process_fixture_name)
+        config = get_config(request)
+
+        session = aioboto3.Session(
+            aws_access_key_id=access_key or config["aws_access_key"],
+            aws_secret_access_key=secret_key or config["aws_secret_key"],
+            region_name=region or config["aws_region"],
+        )
+
+        async with session.resource(
+            "dynamodb",
+            endpoint_url=f"http://{proc_fixture.host}:{proc_fixture.port}"
+        ) as dynamo_db:
+            yield dynamo_db
+            async for table in dynamo_db.tables.all():  # pylint:disable=no-member
+                await table.delete()
+
+    return dynamodb_factory
+
+
+__all__ = ("dynamodb_proc", "dynamodb", "asyncio_dynamodb")

@@ -49,6 +49,7 @@ How to use
 Plugin contains two fixtures
 
 * **dynamodb** - it's a client/resource fixture that has functional scope. After each test it drops tables in DynamoDB.
+* **asyncio_dynamodb** - same as **dynamodb**, but uses the `aioboto3 <https://pypi.org/project/aioboto3/>`_ async client
 * **dynamodb_proc** - session scoped fixture, that starts DynamoDB instance at it's first use and stops at the end of the tests.
 
 Simply include one of these fixtures into your tests fixture list.
