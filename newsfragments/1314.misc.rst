@@ -1,0 +1,1 @@
+Rely on cached/artifacted Pipfile.lock. This allows to use pipenv seamlessly on more than single python versions.
