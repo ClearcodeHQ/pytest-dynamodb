@@ -31,12 +31,10 @@ jobs:
     - uses: fizyk/actions-reuse/.github/actions/pipenv@v2.4.2
       with:
         python-version: ${{ matrix.python-version }}
-        pipenv-install-options: "--skip-lock"
         command: pytest -n 0 --cov-report=xml
     - uses: fizyk/actions-reuse/.github/actions/pipenv@v2.4.2
       with:
         python-version: ${{ matrix.python-version }}
-        pipenv-install-options: "--skip-lock"
         command: pytest -n 1 --cov-report=xml:coverage-xdist.xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4.1.0
