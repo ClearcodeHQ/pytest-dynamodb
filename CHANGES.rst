@@ -3,6 +3,21 @@ CHANGELOG
 
 .. towncrier release notes start
 
+2.3.0 (2024-03-12)
+==================
+
+Features
+--------
+
+- Add Support for Python 3.12 (`#1315 <https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1315>`_)
+
+
+Miscellaneus
+------------
+
+- `#1291 <https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1291>`_, `#1314 <https://github.com/ClearcodeHQ/pytest-dynamodb/issues/1314>`_
+
+
 2.2.3 (2023-06-12)
 ==================
 
